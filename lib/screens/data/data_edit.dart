@@ -60,15 +60,11 @@ class _EditScreenState extends State<EditScreen> {
         .eq('id', widget.data[3]) // Assuming the ID is passed as the fourth element
         .execute();
 
-    if (response.data != null) {
-      // Show success message
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Changes saved successfully')),
-      );
-    } else {
-      // Handle error
-      print('Error saving changes: ${response.data.toString()}');
-    }
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Changes saved successfully')),
+    );
+
+    Navigator.of(context).pop();
   }
 
   @override
